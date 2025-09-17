@@ -10,7 +10,7 @@ def path_finder(maze, x=0, y=0, last_positions=[(0, 0)]):
     # if position is bottom right completed, and exit exists.
     if x == len(maze) - 1 and y == len(maze[len(maze) - 1]) - 1:
         return True
-
+    
     # checks if going up is possible
     if x - 1 > - 1 and maze[x-1][y] == '.' and (x - 1, y) not in last_positions:
         last_positions.append((x - 1, y))
@@ -40,25 +40,6 @@ def path_finder(maze, x=0, y=0, last_positions=[(0, 0)]):
         # same check
         if path_finder(maze, x, y - 1, last_positions):
             return True
-        
+    
     # dead end or maze is impossible
     return False
-
-
-
-# maze = '\n'.join(["......",
-#         "......",
-#         "......",
-#         "......",
-#         "......",
-#         "......"])
-
-# path_finder(maze, 0, 0)
-
-maze = '\n'.join([
-        "...",
-        "W.W",
-        "W.." 
-    ])
-
-path_finder(maze, 0, 0)
