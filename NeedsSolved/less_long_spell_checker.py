@@ -39,7 +39,6 @@ def damerau_levenshtein_distance(source: str, target: str) -> int:
             deletion_cost = d[i - 1][j] + 1
 
             # Get the minimum of the four operations
-            print(transposition_cost, min(substitution_cost, insertion_cost, deletion_cost, transposition_cost))
             d[i][j] = min(substitution_cost, insertion_cost, deletion_cost, transposition_cost)
             if d[i][j] == transposition_cost:
                 sourceList = list(source)
@@ -75,7 +74,7 @@ def correct_spelling(text, word_list):
             else:
                 answer_dict[word] = [item[0] for item in answer_dict[word] if item[1] == 2]
 
-    return answer_dict
+    return dict(sorted(answer_dict.items()))
 
 
 
